@@ -131,12 +131,6 @@ pre {
 section .bg {
   @each $bg in dark, secondary {
     &-#{$bg} {
-      code,
-      pre {
-        background-color: $light;
-        color: $dark;
-      }
-
       p code {
         padding: 3px 4px 2px;
       }
@@ -145,12 +139,6 @@ section .bg {
 
   @each $bg in white, primary, success, info, warning, danger, light {
     &-#{$bg} {
-      code,
-      pre {
-        background-color: $dark;
-        color: $light;
-      }
-
       p code {
         padding: 3px 4px 2px;
       }
