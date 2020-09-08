@@ -4,7 +4,7 @@
 {{- partial "helpers/container.html" (dict "start" true "in_slot" .in_slot "bg" $bg "id" .id "Params" .Params) }}
   <div class="row">
     <div class="col-md m-2
-      {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "secondary") -}}
+      {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white") -}}
     ">
       {{- with .Params.asset }}
         <h4>
@@ -23,10 +23,15 @@
         {{- end -}}
       {{- end -}}
 
+      {{- with .Params.menu_social_title }}
+        <h5>
+          {{- . -}}
+        </h5>
+      {{- end -}}
       {{- if .Site.Menus.footer_social }}
         <div class="row justify-content-left ml-0">
           {{- range sort .Site.Menus.footer_social }}
-            <span class="fa-stack fa-2x mt-3 mr-1" title="{{ .Name }}">
+            <span class="fa-stack mt-1 mr-1" title="{{ .Name }}">
               <a href="{{ .URL | relLangURL }}" class="ignore-color-change
                 {{- if eq $bg "primary" -}}
                   {{- print " text-dark" -}}
@@ -41,12 +46,12 @@
       {{- end }}
     </div>
     <div class="col-md m-2
-      {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "secondary") -}}
+      {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white") -}}
     ">
       {{- with .Params.menu_title }}
-        <h4>
+        <h5>
           {{- . -}}
-        </h4>
+        </h5>
       {{- end -}}
       {{- if .Site.Menus.footer }}
         <ul class="nav flex-column">
@@ -67,6 +72,9 @@
       {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "secondary") -}}
     ">
       {{- with .self.Content }}
+        <h5 class="
+          {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "white") -}}
+        ">SymLevel C++ Debugger</h5>
         <div>
           {{- . -}}
         </div>
