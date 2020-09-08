@@ -25,13 +25,23 @@
       <tr>
         {{- range $i, $s := .values -}}
           {{- if .header }}
-            <th class="align-middle
+            <th class="
+              {{- if (in (slice "top" "middle" "bottom") .valign) -}}
+                {{- printf "align-%s" .valign -}}
+              {{- else -}}
+                {{- printf "align-middle" -}}
+              {{- end -}}
               {{- if (index $.header.values $i).hide_on_mobile -}}
                 {{- print " hide-on-mobile" }}
               {{- end -}}
             ">{{ .header | markdownify }}</th>
             {{- else if .button }}
-              <td class="align-middle
+              <td class="
+                {{- if (in (slice "top" "middle" "bottom") .valign) -}}
+                  {{- printf "align-%s" .valign -}}
+                {{- else -}}
+                  {{- printf "align-middle" -}}
+                {{- end -}}
                 {{- if (in (slice "left" "center" "right") .align) -}}
                   {{- printf " text-%s" .align -}}
                 {{- end -}}
@@ -48,7 +58,12 @@
               </a>
             </td>
           {{- else if .icon }}
-            <td class="align-middle
+            <td class="
+              {{- if (in (slice "top" "middle" "bottom") .valign) -}}
+                {{- printf "align-%s" .valign -}}
+              {{- else -}}
+                {{- printf "align-middle" -}}
+              {{- end -}}
               {{- if (in (slice "left" "center" "right") .align) -}}
                 {{- printf " text-%s" .align -}}
               {{- end -}}
@@ -61,7 +76,12 @@
               </a>
             </td>
           {{- else }}
-            <td class="align-middle
+            <td class="
+              {{- if (in (slice "top" "middle" "bottom") .valign) -}}
+                {{- printf "align-%s" .valign -}}
+              {{- else -}}
+                {{- printf "align-middle" -}}
+              {{- end -}}
               {{- if (in (slice "left" "center" "right") .align) -}}
                 {{- printf " text-%s" .align -}}
               {{- end -}}
